@@ -1,0 +1,27 @@
+.App {
+  text-align: center;
+}
+
+.body {
+all:unset;
+}
+input {
+  all: unset;
+}
+button {
+  all: unset;
+  cursor: pointer;
+}
+
+::placeholder {
+  color: #c4e9ff;
+  opacity: 1; 
+} 
+
+span {
+  margin: auto;
+}
+
+li {
+  padding: 0 40px;
+}
