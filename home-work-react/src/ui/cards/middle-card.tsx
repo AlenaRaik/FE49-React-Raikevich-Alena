@@ -9,7 +9,7 @@ import {
   import { CardProps } from "./card-props";
   
   type BigPostCardProps = {
-    postCard: CardProps;
+    value: CardProps;
   };
   
   export const MiddleCard: React.FC<BigPostCardProps> = (
@@ -20,32 +20,32 @@ import {
   
     function dislike() {
       if (isLiked) {
-        props.postCard.like--;
+        props.value.like--;
       }
       setDisliked(!isDisliked);
       setLiked(false);
-      if(isDisliked) {props.postCard.dislike--;}
-      else props.postCard.dislike++;
+      if(isDisliked) {props.value.dislike--;}
+      else props.value.dislike++;
     }
     function like() {
       if (isDisliked) {
-        props.postCard.dislike--;
+        props.value.dislike--;
       }
       setLiked(!isLiked);
       setDisliked(false);
-      if(isLiked) {props.postCard.like--;}
-      else props.postCard.like++;
+      if(isLiked) {props.value.like--;}
+      else props.value.like++;
     }
     return (
       <div>
         <MiddlCard>
           <CardData>
           <ImageCard>
-              <img src={props.postCard.image} alt="#"></img>
+              <img src={props.value.image} alt="#"></img>
             </ImageCard>
             <TextData>
-              <p>{props.postCard.date}</p>
-              <Header>{props.postCard.title}</Header>
+              <p>{props.value.date}</p>
+              <Header>{props.value.title}</Header>
             </TextData>
           </CardData>
           <CommandString>
@@ -57,7 +57,7 @@ import {
                   <FontAwesomeIcon icon={faThumbsUp} />
                 )}
               </ButtonLike>
-              <p>{props.postCard.like}</p>
+              <p>{props.value.like}</p>
               <ButtonDislike onClick={() => dislike()}>
                 {isDisliked ? (
                   <FontAwesomeIcon icon={faThumbsDown} color="black" />
@@ -65,7 +65,7 @@ import {
                   <FontAwesomeIcon icon={faThumbsDown} />
                 )}
               </ButtonDislike>
-              <p>{props.postCard.dislike}</p>
+              <p>{props.value.dislike}</p>
             </WrapperLike>
             <WrapperOther>
               <ButtonPoints>...</ButtonPoints>
@@ -84,7 +84,6 @@ import {
   `;
   const WrapperOther = styled.div``;
   const MiddlCard = styled.div`
-    width: 30%;
     padding: 3%;
   `;
   const CommandString = styled.div`

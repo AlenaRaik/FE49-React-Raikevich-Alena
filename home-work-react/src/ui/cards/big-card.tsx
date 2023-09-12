@@ -8,8 +8,8 @@ import { useState } from "react";
 import { styled } from "styled-components";
 import { CardProps } from "./card-props";
 
-type BigPostCardProps = {
-  postCard: CardProps;
+export type BigPostCardProps = {
+  value: CardProps;
 };
 
 export const BigCard: React.FC<BigPostCardProps> = (
@@ -20,33 +20,33 @@ export const BigCard: React.FC<BigPostCardProps> = (
 
   function dislike() {
     if (isLiked) {
-      props.postCard.like--;
+      props.value.like--;
     }
     setDisliked(!isDisliked);
     setLiked(false);
-    if(isDisliked) {props.postCard.dislike--;}
-    else props.postCard.dislike++;
+    if(isDisliked) {props.value.dislike--;}
+    else props.value.dislike++;
   }
   function like() {
     if (isDisliked) {
-      props.postCard.dislike--;
+      props.value.dislike--;
     }
     setLiked(!isLiked);
     setDisliked(false);
-    if(isLiked) {props.postCard.like--;}
-    else props.postCard.like++;
+    if(isLiked) {props.value.like--;}
+    else props.value.like++;
   }
   return (
     <div>
       <Card>
         <CardData>
           <TextData>
-            <p>{props.postCard.date}</p>
-            <Header>{props.postCard.title}</Header>
-            <p>{props.postCard.text}</p>
+            <p>{props.value.date}</p>
+            <Header>{props.value.title}</Header>
+            <p>{props.value.text}</p>
           </TextData>
           <ImageCard>
-            <img src={props.postCard.image} alt="#"></img>
+            <img src={props.value.image} alt="#"></img>
           </ImageCard>
         </CardData>
         <CommandString>
@@ -58,7 +58,7 @@ export const BigCard: React.FC<BigPostCardProps> = (
                 <FontAwesomeIcon icon={faThumbsUp} />
               )}
             </ButtonLike>
-            <p>{props.postCard.like}</p>
+            <p>{props.value.like}</p>
             <ButtonDislike onClick={() => dislike()}>
               {isDisliked ? (
                 <FontAwesomeIcon icon={faThumbsDown} color="black" />
@@ -66,7 +66,7 @@ export const BigCard: React.FC<BigPostCardProps> = (
                 <FontAwesomeIcon icon={faThumbsDown} />
               )}
             </ButtonDislike>
-            <p>{props.postCard.dislike}</p>
+            <p>{props.value.dislike}</p>
           </WrapperLike>
           <WrapperOther>
             <ButtonPoints>...</ButtonPoints>
@@ -85,7 +85,6 @@ const WrapperLike = styled.div`
 `;
 const WrapperOther = styled.div``;
 const Card = styled.div`
-  width: 60%;
   padding: 3%;
 `;
 const CommandString = styled.div`

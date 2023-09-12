@@ -1,6 +1,6 @@
 import { CardProps } from "./ui/cards/card-props";
 
-export const postCardModels: CardProps[] = [
+export const cardArray: CardProps[] = [
   {
     id: 1,
     image: 'https://i.pinimg.com/564x/2d/9f/67/2d9f676a7210c693186dac6c61a17ac9.jpg',
