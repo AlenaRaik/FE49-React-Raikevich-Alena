@@ -109,8 +109,6 @@ export const Menu: React.FC<MenuProps> = (props: MenuProps) => {
 };
 
 const StyledMenu = styled.nav<{ open: boolean }>`
-  top: 0;
-  left: 0;
   width: 30%;
   position: relative;
   background-color: #3a20ff;
